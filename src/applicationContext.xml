@@ -36,7 +36,6 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	<!-- SqlSessionFactory配置 -->
-	<!-- 让Spring管理SqlSessionFactory使用mybatis和spring整合包中的 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!--数据库连接池 -->
 		<property name="dataSource" ref="myDataSource" />
