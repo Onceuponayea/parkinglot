@@ -7,11 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 @Controller
 public class HomeController {
-//	@RequestMapping("test")
-//	public ModelAndView hello() {
-//		ModelAndView andView = new ModelAndView();
-//		andView.addObject("user", "����");
-//		andView.setViewName("success");
-//		return andView;
-//	}
+	@RequestMapping("test")
+	public ModelAndView hello() {
+		ModelAndView andView = new ModelAndView();
+		andView.addObject("user", "����");
+		andView.setViewName("success");
+		return andView;
+	}
 }

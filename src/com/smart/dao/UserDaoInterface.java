@@ -1,5 +1,10 @@
 package com.smart.dao;
 
-public interface UserDaoInterface {
+import org.springframework.stereotype.Repository;
 
+import com.smart.bean.UserBean;
+
+@Repository
+public interface UserDaoInterface {
+	public UserBean findUser();
 }

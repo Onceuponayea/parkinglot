@@ -8,5 +8,6 @@
 </head>
 <body>
 	<a href="mytest">TEST</a>
+	<a href="test">test2</a>
 </body>
 </html>
