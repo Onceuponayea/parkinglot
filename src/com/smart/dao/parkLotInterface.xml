@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.smart.dao.parkLotInterface">
+	<select id="findUser" resultType="com.smart.bean.UserBean">
+		select * from tbl_user
+	</select>
+
+
+	<insert id="adduser" parameterType="java.util.List">
+
+		INSERT into tbl_user(username,password)VALUES(#{userName},#{password});
+	</insert>
+
+
+
+	<update id="updateTest">
+		UPDATE tbl_user SET username = #{userName} WHERE userid = #{userID}
+
+	</update>
+</mapper>
