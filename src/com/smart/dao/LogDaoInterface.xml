@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.smart.dao.LogDaoInterface">
+	<insert id="insertToMyLog" parameterType="com.smart.bean.LogBean">
+		insert into
+		tbl_log(logname,logtime,userid)
+		values(#{logName},#{logTime},#{userBean.userId})
+	</insert>
+	<select id="selectMyLog" parameterType="com.smart.bean.LogBean"
+		resultType="com.smart.bean.LogBean"></select>
+</mapper>
+

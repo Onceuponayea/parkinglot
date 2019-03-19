@@ -11,12 +11,6 @@ import java.lang.annotation.RetentionPolicy;
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyLog {
-	/**
-	 * 操作类型（“登录、退出等”）
-	 * 
-	 * @return
-	 */
-	public String actionType();
 
 	/**
 	 * 操作名称（“修改数据库等”）
