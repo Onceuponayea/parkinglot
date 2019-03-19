@@ -20,7 +20,7 @@ public class MyTest {
 		System.out.println("有没有进来？");
 		UserBean userBean = new UserBean();
 		userBean.setUserID(5);
-		userBean.setUserName("友慎");
+		userBean.setUserName("是开1");
 		login();
 		// ActionContext.getContext().getSession().put("user", userBean);
 
