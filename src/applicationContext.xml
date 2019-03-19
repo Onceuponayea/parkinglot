@@ -44,7 +44,10 @@
 		id="mapperScannerConfigurer">
 		<property name="basePackage" value="com.smart.dao"></property>
 	</bean>
+	<!-- 扫描切面切点 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
 	<context:component-scan base-package="com.smart.dao" />
 	<context:component-scan base-package="com.smart.controller" />
 	<context:component-scan base-package="com.smart.service" />
+	<context:component-scan base-package="com.smart.util" />
 </beans>
