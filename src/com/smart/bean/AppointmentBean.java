@@ -6,7 +6,7 @@ package com.smart.bean;
  * @author 86180
  *
  */
-public class AppointmentBean { 
+public class AppointmentBean {  
 	private Integer appointId;// 预约Id
 	private CustBean custBean;// 车主实体
 	private CarBean carBean;// 汽车实体
