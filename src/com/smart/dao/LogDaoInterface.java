@@ -20,5 +20,5 @@ public interface LogDaoInterface {
 	 * 
 	 * @return
 	 */
-	public List<LogBean> selectMyLog(LogBean logBean);
+	public List<LogBean> selectMyLog(LogBean logBean);//sss
 }
