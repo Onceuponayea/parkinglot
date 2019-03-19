@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.smart.dao.ParkDaoInterface">
+	<!-- 查看停车区域是否有录入 -->
+	<select id="findParkByParkArea" resultType="com.smart.bean.ParkBean">
+		select * from tbl_park where PARKAREA=#{parkArea}
+	</select>
+	<!-- 根据停车区域查询最大车位号数 -->
+	<select id="findParkNumByParkArea" resultType="java.lang.Integer">
+		select max(PARKNUM) from tbl_park where
+		PARKAREA=#{parkArea}
+	</select>
+	<!-- 车位入库 -->
+	<insert id="addParkSpace" parameterType="com.smart.bean.ParkBean" useGeneratedKeys="true">
+		insert into
+		tbl_park(PARKAREA,PARKNUM,PARKSTATE) values(#{parkArea},#{parkNum},#{parkState});
+	</insert>
+	<!-- 修改车位状态 -->
+	<update id="updateParkStateByAreaAndNum" parameterType="com.smart.bean.ParkBean">
+     update tbl_park set PARKSTATE=#{parkState} where PARKAREA=#{parkArea} and PARKNUM=#{parkNum}
+	</update>
+	<!--删除车位 -->
+	<delete id="deleParkNumByAreaAndNum" parameterType="com.smart.bean.ParkBean">
+		delete from tbl_park where PARKAREA=#{parkArea} and PARKNUM=#{parkNum}
+	</delete>
+	<!-- 根据车位状态查询车位个数 -->
+	<select id="findPark" resultType="java.lang.Integer">
+		select count(*) from tbl_park
+		where PARKSTATE=#{parkState}
+	</select>
+    
+</mapper>
