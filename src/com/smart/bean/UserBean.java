@@ -12,14 +12,14 @@ public class UserBean {
 	private String password;// 密码
 	private String sexy;// 性别
 	private String realName;// 真实姓名
-	private Integer phone;// 手机
+	private String phone;// 手机
 	private RoleBean roleBean;// 角色实体
 
 	public UserBean() {
 		super();
 	}
 
-	public UserBean(Integer userId, String userName, String password, String sexy, String realName, Integer phone,
+	public UserBean(Integer userId, String userName, String password, String sexy, String realName, String phone,
 			RoleBean roleBean) {
 		super();
 		this.userId = userId;
@@ -71,11 +71,11 @@ public class UserBean {
 		this.realName = realName;
 	}
 
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -92,6 +92,5 @@ public class UserBean {
 		return "UserBean [userId=" + userId + ", userName=" + userName + ", password=" + password + ", sexy=" + sexy
 				+ ", realName=" + realName + ", phone=" + phone + ", roleBean=" + roleBean + "]";
 	}
-
 
 }
