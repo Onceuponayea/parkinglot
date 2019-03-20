@@ -12,19 +12,23 @@ public class VIPBean {
 	private CarBean carBean;// 汽车实体
 	private String startTime;// 开始时间
 	private String endTime;// 结束时间
-
+	private String state;
 	public VIPBean() {
 		super();
 	}
 
-	public VIPBean(Integer vipId, ComboBean comboBean, CarBean carBean, String startTime, String endTime) {
+	
+	public VIPBean(Integer vipId, ComboBean comboBean, CarBean carBean, String startTime, String endTime,
+			String state) {
 		super();
 		this.vipId = vipId;
 		this.comboBean = comboBean;
 		this.carBean = carBean;
 		this.startTime = startTime;
 		this.endTime = endTime;
+		this.state = state;
 	}
+
 
 	public Integer getVipId() {
 		return vipId;
@@ -65,11 +69,24 @@ public class VIPBean {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+	
+	
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 
 	@Override
 	public String toString() {
 		return "VIPBean [vipId=" + vipId + ", comboBean=" + comboBean + ", carBean=" + carBean + ", startTime="
-				+ startTime + ", endTime=" + endTime + "]";
+				+ startTime + ", endTime=" + endTime + ", state=" + state + "]";
 	}
+
+	
 
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.smart.dao.VipDaoInterface">
+	<insert id="insertVip" parameterType="com.smart.bean.VIPBean">
+		insert into tbl_vip(comboid,carid,starttime,endtime,state) 
+		values(#{comboBean.comboId},#{carBean.carId},#{startTime},#{endTime},#{state});
+	</insert>
+<!-- 	<select id="findOneCombo" parameterType="com.smart.bean.ComboBean" resultType="com.smart.bean.ComboBean"> -->
+<!-- 		select * from tbl_combo where standard = #{standard}; -->
+<!-- 	</select> -->
+<!-- 	<select id="findOneCar" parameterType="com.smart.bean.CarBean" resultType="com.smart.bean.CarBean"> -->
+<!-- 		select carid,carnum from tbl_car where carnum=#{carNum}; -->
+<!-- 	</select> -->
+	<select id="findVipByCarAndState" parameterType="com.smart.bean.CarBean" resultMap="vipBean">
+		select a.*,b.*,c.carid,c.carnum from tbl_vip a left join tbl_combo b on a.comboid = b.comboid left join tbl_car c on a.carid = c.carid where a.carid = (select carid from tbl_car where carnum = #{carBean.carNum}) and state = #{state};
+	</select>
+	<resultMap type="com.smart.bean.VIPBean" id="vipBean">
+		<id property="vipId" column="vipid"/>
+		<result property="startTime" column="starttime"/>
+		<result property="endtime" column="endTime"/>
+		<result property="state" column="state"/>
+		<association property="comboBean"
+		javaType="com.smart.bean.ComboBean">
+			<id property="comboId" column="comboid"/>
+			<result property="standard" column="standard"/>
+			<result property="price" column="price"/>
+		</association>
+		<association property="carBean" javaType="com.smart.bean.CarBean">
+			<id property="carId" column="carid"/>
+			<result property="carNum" column="carnum"/>
+		</association>
+	</resultMap>
+</mapper>
+
