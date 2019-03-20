@@ -8,7 +8,32 @@
 		tbl_log(logname,logtime,userid)
 		values(#{logName},#{logTime},#{userBean.userId})
 	</insert>
-	<select id="selectMyLog" parameterType="com.smart.bean.LogBean"
-		resultType="com.smart.bean.LogBean"></select>
+	<select id="selectMyLog" parameterType="com.smart.bean.SearchConditionBean"
+		resultMap="logBeanMap">
+
+		select @rowno:=@rowno+1 as rowno,l.* from (select @rowno:=#{page})
+		t,tbl_log l where 1=1
+		<if test="userName!='' and userName!=null">
+	and l.userid = (SELECT userid from tbl_user where username =
+	#{userName})
+		</if>
+		<if
+			test="beginDate!='' and beginDate!=null and endTime!='' and endTime!=null">
+			and l.logtime between #{beginDate} and #{endTime}
+		</if>
+		<if test="logName!='' and logName!=null">
+			and l.logname=#{logName}
+		</if>
+		ORDER BY l.logtime LIMIT #{page},#{limit}
+	</select>
+	<resultMap type="com.smart.bean.LogBean" id="logBeanMap">
+		<association property="userBean" column="userid"
+			javaType="com.smart.bean.UserBean" select="findUserInfo"></association>
+	</resultMap>
+
+	<select id="findUserInfo" resultType="com.smart.bean.UserBean">
+	select * from tbl_user
+	where userid=#{userid}
+	</select>
 </mapper>
 
