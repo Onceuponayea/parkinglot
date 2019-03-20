@@ -22,5 +22,5 @@ public interface MenuDaoInterface {
 	/**
 	 * 查找二级菜单
 	 */
-	public List<MenuBean> selectSecondMenu(String firstMenuName);
+	public List<MenuBean> selectSecondMenu(String userName,String firstMenuName);
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.smart.dao.MenuDaoInterface">
+	<select id="selectFirstMenu" parameterType="com.smart.bean.UserBean"
+		resultType="java.lang.String">
+		SELECT menuname from tbl_menu WHERE menuid in (SELECT
+		menuid from
+		tbl_usermenu WHERE userid = ( SELECT userid from tbl_user
+		WHERE
+		username=#{userName})) AND pid = 0
+	</select>
+	<select id="selectSecondMenu" parameterType="java.lang.String"
+		resultType="com.smart.bean.MenuBean">
+		SELECT * from tbl_menu WHERE menuid in (SELECT menuid from tbl_usermenu
+		WHERE userid = ( SELECT userid from tbl_user WHERE
+		username=#{param1})) AND pid =(SELECT menuid FROM tbl_menu WHERE
+		menuname = #{param2})
+	</select>
+</mapper>
+
