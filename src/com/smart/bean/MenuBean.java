@@ -6,17 +6,17 @@ package com.smart.bean;
  * @author 86180
  *
  */
-public class MeunBean {
+public class MenuBean {
 	private Integer menuId;// 菜单Id
 	private Integer PId;// 上级菜单
 	private String menuName;// 菜单名字
 	private String url;// 路径
 
-	public MeunBean() {
+	public MenuBean() {
 		super();
 	}
 
-	public MeunBean(Integer menuId, Integer pId, String menuName, String url) {
+	public MenuBean(Integer menuId, Integer pId, String menuName, String url) {
 		super();
 		this.menuId = menuId;
 		PId = pId;
