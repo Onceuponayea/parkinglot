@@ -15,6 +15,22 @@
 			<param-value>classpath:applicationContext.xml</param-value>
 		</init-param>
 	</servlet>
+	
+<!-- jsp界面里用来找路径文件用的，什么后缀名的文件就.哪个，比如.js.css等 -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+<!-- Over -->
+	
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
