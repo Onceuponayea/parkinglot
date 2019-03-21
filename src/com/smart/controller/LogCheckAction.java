@@ -50,7 +50,7 @@ public class LogCheckAction {
 	 */
 	@RequestMapping("findLogList")
 	public @ResponseBody Map<String, Object> findLogList(SearchConditionBean searchCon) {
-		System.out.println("进入日志查看");
+		System.out.println("进入日志查看1");
 		searchCon.setEndTime(searchCon.getEndTime() + " 3");
 		searchCon.setPage((searchCon.getPage() - 1) * searchCon.getLimit());
 		System.out.println("searchConditionBean===" + searchCon);
