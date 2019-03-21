@@ -32,5 +32,4 @@ public class MapAction {
 		return modelAndView;
 	}
 
-	
 }

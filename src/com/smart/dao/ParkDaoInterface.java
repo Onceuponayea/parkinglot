@@ -41,7 +41,6 @@ public interface ParkDaoInterface {
 	 * 查询车位使用状态个数
 	 */
 	public int findPark(String parkState);
-	
 	/**
 	 * 根据车号查找车位
 	 * 

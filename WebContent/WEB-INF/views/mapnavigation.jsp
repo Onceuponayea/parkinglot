@@ -58,7 +58,6 @@ body, html {
 		anchor : BMAP_ANCHOR_BOTTOM_RIGHT
 	})); //右下角区域，打开
 	//单击获取点击的经纬度
-
 	map.addEventListener("click", function(e) {
 		map.clearOverlays();
 		var myP1 = new BMap.Point(e.point.lng, e.point.lat); //起点
