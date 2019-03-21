@@ -29,5 +29,15 @@
 		select count(*) from tbl_park
 		where PARKSTATE=#{parkState}
 	</select>
-    
+	<!-- 根据车号查车位 -->
+	<select id="findParkNumByCarNum" resultType="com.smart.bean.ParkBean">
+		select p.PARKAREA,p.PARKNUM from tbl_park p,tbl_car c where
+		p.carid=c.carid and carnum=#{parment}
+	</select>
+	<!-- 查询公司所在的城市和地址 -->
+	<select id="findCityByParanName" resultType="java.lang.String">
+		select paramdata
+		from tbl_param where paramname=#{paramName}
+	</select>
+	
 </mapper>
