@@ -9,13 +9,13 @@ package com.smart.bean;
 public class UserMenuBean {
 	private Integer userMenuId;// 用户角色Id
 	private UserBean userBean;// 用户实体
-	private MeunBean menuBean;// 菜单实体
+	private MenuBean menuBean;// 菜单实体
 
 	public UserMenuBean() {
 		super();
 	}
 
-	public UserMenuBean(Integer userMenuId, UserBean userBean, MeunBean menuBean) {
+	public UserMenuBean(Integer userMenuId, UserBean userBean, MenuBean menuBean) {
 		super();
 		this.userMenuId = userMenuId;
 		this.userBean = userBean;
@@ -38,11 +38,11 @@ public class UserMenuBean {
 		this.userBean = userBean;
 	}
 
-	public MeunBean getMenuBean() {
+	public MenuBean getMenuBean() {
 		return menuBean;
 	}
 
-	public void setMenuBean(MeunBean menuBean) {
+	public void setMenuBean(MenuBean menuBean) {
 		this.menuBean = menuBean;
 	}
 

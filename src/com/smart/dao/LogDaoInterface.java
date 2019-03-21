@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.smart.bean.LogBean;
+import com.smart.bean.SearchConditionBean;
 
 @Repository
 public interface LogDaoInterface {
@@ -20,5 +21,17 @@ public interface LogDaoInterface {
 	 * 
 	 * @return
 	 */
-	public List<LogBean> selectMyLog(LogBean logBean);//ssss
+	public List<LogBean> selectMyLog(SearchConditionBean searchConditionBean);
+
+	/**
+	 * 查询总条数
+	 */
+	public int selectCount(SearchConditionBean searchConditionBean);
+
+	/**
+	 * 查询所有的操作名称
+	 * 
+	 * @return
+	 */
+	public List<String> selectLogNameList();
 }

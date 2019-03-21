@@ -14,8 +14,8 @@
 		select @rowno:=@rowno+1 as rowno,l.* from (select @rowno:=#{page})
 		t,tbl_log l where 1=1
 		<if test="userName!='' and userName!=null">
-	and l.userid = (SELECT userid from tbl_user where username =
-	#{userName})
+			and l.userid = (SELECT userid from tbl_user where username =
+			#{userName})
 		</if>
 		<if
 			test="beginDate!='' and beginDate!=null and endTime!='' and endTime!=null">
@@ -24,7 +24,7 @@
 		<if test="logName!='' and logName!=null">
 			and l.logname=#{logName}
 		</if>
-		ORDER BY l.logtime LIMIT #{page},#{limit}
+		ORDER BY l.logtime DESC LIMIT #{page},#{limit}
 	</select>
 	<resultMap type="com.smart.bean.LogBean" id="logBeanMap">
 		<association property="userBean" column="userid"
@@ -32,8 +32,26 @@
 	</resultMap>
 
 	<select id="findUserInfo" resultType="com.smart.bean.UserBean">
-	select * from tbl_user
-	where userid=#{userid}
+		select * from tbl_user
+		where userid=#{userid}
+	</select>
+	<select id="selectCount" resultType="java.lang.Integer"
+		parameterType="com.smart.bean.SearchConditionBean">
+		select COUNT(*) from tbl_log where 1=1
+		<if test="userName!='' and userName!=null">
+			and userid = (SELECT userid from tbl_user where username =
+			#{userName})
+		</if>
+		<if
+			test="beginDate!='' and beginDate!=null and endTime!='' and endTime!=null">
+			and logtime between #{beginDate} and #{endTime}
+		</if>
+		<if test="logName!='' and logName!=null">
+			and logname=#{logName}
+		</if>
+	</select>
+	<select id="selectLogNameList" resultType="java.lang.String">
+		SELECT logname from tbl_log GROUP BY logname
 	</select>
 </mapper>
 

@@ -33,7 +33,7 @@ public class MyLogAspect {
 		UserBean user = (UserBean) session.getAttribute("user");
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
 		String actioTime = simpleDateFormat.format(new Date());
-		LogBean logbean = new LogBean(0, log.actionName(), actioTime, user);
+		LogBean logbean = new LogBean(0,0, log.actionName(), actioTime, user);//这行有更新3.20
 		int n = logDaoInterface.insertToMyLog(logbean);
 		if (n > 0) {
 			System.out.println("日志记录成功！");
